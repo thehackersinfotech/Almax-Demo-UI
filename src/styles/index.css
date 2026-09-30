@@ -1,0 +1,1785 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --bms-font: 'Inter', 'Roboto', 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans Tamil', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--bms-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+  background: var(--bms-bg);
+  color: var(--bms-text);
+}
+
+:root,
+[data-theme="light"] {
+  /* Premium modern elegant palette */
+  --bms-primary:       #1a73e8;
+  --bms-primary-hover: #1557b0;
+  --bms-primary-light: #e8f0fe;
+  --bms-success:       #188038;
+  --bms-warning:       #e37400;
+  --bms-danger:        #c5221f;
+  --bms-danger-bg:     #fce8e6;
+  --bms-danger-border: #f5c2c0;
+  --bms-danger-accent: #d96560;
+  --bms-success-bg:    #e6f4ea;
+  --bms-success-border:#a8d5b5;
+  --bms-warning-bg:    #fef7e0;
+  --bms-warning-border:#f6d58a;
+  --bms-info-bg:       #e8f0fe;
+  --bms-info-border:   #aecbfa;
+  --bms-bg:            #f4f4f5; /* Zinc 100 - cleaner than f8f9fa */
+  --bms-surface:       #ffffff;
+  --bms-surface-2:     #f4f4f5;
+  --bms-bg-elevated:   #f8fafc;
+  --bms-border:        #e4e4e7; /* Zinc 200 - softer than dadce0 */
+  --bms-text:          #09090b; /* Zinc 950 - better contrast than 202124 */
+  --bms-text-primary:  #09090b;
+  --bms-text-2:        #52525b; /* Zinc 600 */
+  --bms-text-3:        #71717a; /* Zinc 500 */
+  --bms-sidebar-bg:    #09090b; /* Pitch black for premium sidebar */
+  --bms-sidebar-hover: #18181b;
+  --bms-sidebar-width: 240px;
+  --bms-board-column:  #f4f4f5;
+  --bms-header-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm:         0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --shadow-md:         0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg:         0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] {
+  --bms-primary:       #3b82f6;
+  --bms-primary-hover: #60a5fa;
+  --bms-primary-light: #1e2c48;
+  --bms-success:       #34d399;
+  --bms-warning:       #fbbf24;
+  --bms-danger:        #f87171;
+  --bms-danger-bg:     #3b1c1c;
+  --bms-danger-border: #5c2828;
+  --bms-danger-accent: #f87171;
+  --bms-success-bg:    #123524;
+  --bms-success-border:#236b45;
+  --bms-warning-bg:    #3d2e0b;
+  --bms-warning-border:#745a15;
+  --bms-info-bg:       #172d52;
+  --bms-info-border:   #2b5797;
+  --bms-bg:            #080c14; /* Deep black background */
+  --bms-surface:       #172136; /* Distinct vibrant dark-blue box background */
+  --bms-surface-2:     #1e2c48; /* Elevated dark-blue box background */
+  --bms-bg-elevated:   #1e2c48;
+  --bms-border:        #2b3d63; /* Blue-tinted border line */
+  --bms-text:          #f1f5f9;
+  --bms-text-primary:  #f1f5f9;
+  --bms-text-2:        #94a3b8;
+  --bms-text-3:        #64748b;
+  --bms-board-column:  #141d30;
+  --bms-header-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  --shadow-sm:         0 2px 6px 0 rgba(0,0,0,0.35), 0 0 0 1px rgba(59, 130, 246, 0.18);
+  --shadow-md:         0 4px 12px -1px rgba(0,0,0,0.45), 0 0 0 1px rgba(59, 130, 246, 0.22);
+  --shadow-lg:         0 12px 24px -3px rgba(0,0,0,0.5), 0 0 0 1px rgba(59, 130, 246, 0.25);
+}
+
+::-webkit-scrollbar            { width: 6px; height: 6px; }
+::-webkit-scrollbar-track      { background: transparent; }
+::-webkit-scrollbar-thumb      { background: #dadce0; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover{ background: #bdc1c6; }
+[data-theme="dark"] ::-webkit-scrollbar-thumb      { background: #3c4043; }
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover{ background: #5f6368; }
+
+.bms-nav-scroll::-webkit-scrollbar            { width: 4px; }
+.bms-nav-scroll::-webkit-scrollbar-track      { background: transparent; }
+.bms-nav-scroll::-webkit-scrollbar-thumb      { background: rgba(255,255,255,0.15); border-radius: 4px; }
+.bms-nav-scroll::-webkit-scrollbar-thumb:hover{ background: rgba(255,255,255,0.30); }
+.bms-nav-scroll { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.15) transparent; }
+
+/* ── Hidden scrollbars for modals and popups (scroll still works) ─────────── */
+.ant-modal-body::-webkit-scrollbar { display: none; }
+.ant-modal-body { -ms-overflow-style: none; scrollbar-width: none; }
+
+.ant-modal::-webkit-scrollbar { display: none; }
+.ant-modal { -ms-overflow-style: none; scrollbar-width: none; }
+
+.ant-popover-inner-content::-webkit-scrollbar { display: none; }
+.ant-popover-inner-content { -ms-overflow-style: none; scrollbar-width: none; }
+
+.ant-dropdown-menu::-webkit-scrollbar { display: none; }
+.ant-dropdown-menu { -ms-overflow-style: none; scrollbar-width: none; }
+
+.ant-select-dropdown::-webkit-scrollbar { display: none; }
+.ant-select-dropdown { -ms-overflow-style: none; scrollbar-width: none; }
+
+.ant-dropdown::-webkit-scrollbar { display: none; }
+.ant-dropdown { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Generic hidden scrollbar for any scrollable element in modals */
+.ant-modal [class*="scroll"]::-webkit-scrollbar { display: none; }
+.ant-modal [class*="scroll"] { -ms-overflow-style: none; scrollbar-width: none; }
+
+.ant-modal-body [style*="overflow"]::-webkit-scrollbar { display: none; }
+.ant-modal-body [style*="overflow"] { -ms-overflow-style: none; scrollbar-width: none; }
+
+.ant-layout { background: var(--bms-bg); font-family: var(--bms-font); }
+
+.ant-table-thead > tr > th {
+  background: var(--bms-surface-2);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--bms-text-2);
+  border-bottom: 1px solid var(--bms-border);
+}
+
+.ant-table-summary,
+.ant-table-summary > tr > td,
+.ant-table-summary > tr > th,
+tfoot > tr > td,
+tfoot > tr > th {
+  background: var(--bms-surface-2) !important;
+  color: var(--bms-text) !important;
+  border-top: 1px solid var(--bms-border) !important;
+}
+
+.ant-table { border-radius: 14px; overflow: hidden; transition: border-color 0.2s ease-in-out; }
+.ant-card  { border-radius: 14px; border: 1px solid var(--bms-border); box-shadow: var(--shadow-sm); transition: all 0.2s ease-in-out; }
+
+[data-theme="light"] .ant-table-tbody > tr:hover > td { background: var(--bms-primary-light); }
+[data-theme="dark"]  .ant-table-tbody > tr:hover > td { background: #233352; }
+
+.ant-card    { border-radius: 14px !important; border: 1px solid var(--bms-border) !important; box-shadow: var(--shadow-sm) !important; transition: all 0.2s ease-in-out; }
+.ant-btn-primary { font-weight: 500; }
+
+/* ── Dark Mode Blue Box System ────────────────────────────────────────────── */
+[data-theme="dark"] .ant-modal-content,
+[data-theme="dark"] .ant-modal-header,
+[data-theme="dark"] .ant-drawer-content,
+[data-theme="dark"] .ant-drawer-header,
+[data-theme="dark"] .ant-card,
+[data-theme="dark"] .ant-popover-inner,
+[data-theme="dark"] .ant-select-dropdown,
+[data-theme="dark"] .ant-picker-dropdown .ant-picker-panel-container {
+  background-color: #172136 !important;
+  border-color: #2b3d63 !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .ant-modal-title,
+[data-theme="dark"] .ant-drawer-title,
+[data-theme="dark"] .ant-card-head-title,
+[data-theme="dark"] .ant-form-item-label > label {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .ant-input,
+[data-theme="dark"] .ant-input-affix-wrapper,
+[data-theme="dark"] .ant-select-selector,
+[data-theme="dark"] .ant-picker {
+  background-color: #121b2d !important;
+  border-color: #2b3d63 !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .ant-table-container {
+  background-color: #172136 !important;
+  border-color: #2b3d63 !important;
+}
+
+.health-on-track { color: var(--bms-success); }
+.health-at-risk  { color: var(--bms-warning); }
+.health-delayed  { color: var(--bms-danger); }
+
+.page-container { padding: 0; }
+.page-header    { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.page-title     { font-size: 22px; font-weight: 600; color: var(--bms-text); margin: 0; letter-spacing: -0.02em; }
+.page-subtitle  { font-size: 13px; color: var(--bms-text-2); margin: 2px 0 0; font-weight: 400; }
+.stat-card      { border-radius: 14px; border: none; box-shadow: var(--shadow-sm); transition: all 0.2s ease-in-out; }
+
+.table-toolbar {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; row-gap: 8px;
+  padding: 14px 16px; border-bottom: 1px solid var(--bms-border);
+}
+.table-toolbar-title { font-size: 14px; font-weight: 500; color: var(--bms-text); }
+
+.bms-header-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: var(--bms-surface-2);
+  transition: background 0.15s;
+}
+.bms-header-icon-btn:hover {
+  background: var(--bms-primary-light);
+}
+
+/* Ant Design typography inherits app font */
+.ant-typography,
+.ant-btn,
+.ant-input,
+.ant-select,
+.ant-table,
+.ant-menu,
+.ant-modal,
+.ant-dropdown-menu,
+.ant-segmented,
+.ant-tabs {
+  font-family: var(--bms-font) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Modals: keep header/footer fixed, scroll only the body content */
+.ant-modal-content {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 96px);
+  overflow: hidden;
+}
+.ant-modal-header,
+.ant-modal-footer {
+  flex: 0 0 auto;
+}
+.ant-modal-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
+/* Kanban boards — see components/common/KanbanBoard.css */
+
+/* Projects list — readable names, no broken word-wrap */
+.projects-table .ant-table-cell {
+  vertical-align: middle;
+}
+
+.projects-table .ant-table-thead > tr > th {
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.projects-table .ant-table-tbody > tr > td {
+  white-space: nowrap;
+}
+
+.projects-table .ant-table-tbody .ant-typography {
+  margin-bottom: 0;
+}
+
+.projects-table .ant-table-tbody .ant-typography-strong:hover {
+  color: var(--bms-primary, #1a73e8);
+  text-decoration: underline;
+}
+
+/* ── Skip link (a11y) ─────────────────────────────────────────────────────── */
+.bms-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10000;
+  padding: 8px 16px;
+  background: var(--bms-primary);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0 0 8px 0;
+  text-decoration: none;
+}
+.bms-skip-link:focus {
+  left: 0;
+}
+
+/* ── Header icon buttons (accessible) ─────────────────────────────────────── */
+button.bms-header-icon-btn {
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+/* ── Global search (theme-aware) ──────────────────────────────────────────── */
+.bms-global-search {
+  position: relative;
+  width: 320px;
+  max-width: 100%;
+}
+.bms-global-search-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bms-surface-2);
+  border: 1px solid var(--bms-border);
+  border-radius: 10px;
+  padding: 7px 12px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.bms-global-search-input-wrap:focus-within {
+  border-color: var(--bms-primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--bms-primary) 20%, transparent);
+}
+.bms-global-search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13px;
+  color: var(--bms-text);
+  width: 100%;
+  min-width: 0;
+}
+.bms-global-search-input::placeholder {
+  color: var(--bms-text-3);
+}
+.bms-global-search-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: var(--bms-surface);
+  border: 1px solid var(--bms-border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  z-index: 9999;
+  overflow: hidden;
+  max-height: 360px;
+  overflow-y: auto;
+}
+.bms-global-search-empty {
+  padding: 16px;
+  text-align: center;
+  color: var(--bms-text-2);
+  font-size: 13px;
+}
+
+/* ── Mobile layout ────────────────────────────────────────────────────────── */
+.bms-mobile-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 99;
+}
+.bms-mobile-backdrop.visible {
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE / MOBILE — BMS
+   Breakpoints:
+     sm:  480px  (small phones)
+     md:  768px  (landscape phone / small tablet)
+     lg:  960px  (tablet / collapsed-sidebar)
+═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Tablet / large phone (≤960px) ───────────────────────────────────────── */
+@media (max-width: 960px) {
+  html, body, #root {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  /* Sidebar slide-in on mobile */
+  .bms-app-sider {
+    transform: translateX(-100%);
+    transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .bms-app-sider.bms-app-sider--open {
+    transform: translateX(0);
+  }
+  .bms-app-main,
+  .ant-layout {
+    margin-left: 0 !important;
+  }
+
+  /* Header */
+  .bms-app-header {
+    padding: 0 12px !important;
+    height: 64px !important;
+    min-height: 64px !important;
+  }
+  .bms-app-content {
+    padding: 12px 8px !important;
+  }
+
+  /* Global search hidden on mobile */
+  .bms-global-search {
+    width: 100%;
+    max-width: 160px;
+  }
+
+  /* Page header — stack title + actions vertically */
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .page-header > *:last-child {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Page title */
+  .page-title {
+    font-size: 18px;
+  }
+
+  /* Stat cards — 2 columns on tablet */
+  .ant-row.stat-row > .ant-col,
+  .bms-stat-row > .ant-col {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+
+  /* Table toolbar — stack */
+  .table-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+  }
+  .table-toolbar > *:last-child {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Ant Design table — horizontal scroll */
+  .ant-table-wrapper {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    width: 100% !important;
+  }
+  .ant-table-container {
+    overflow-x: auto !important;
+  }
+  .ant-table {
+    min-width: 550px;
+  }
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    white-space: nowrap;
+  }
+
+  /* Cards — reduce padding */
+  .ant-card-body {
+    padding: 14px !important;
+  }
+
+  /* Modal — full-width on tablet */
+  .ant-modal {
+    max-width: 95vw !important;
+    margin: 12px auto !important;
+    top: 8px !important;
+  }
+  .ant-modal-content {
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    padding: 16px !important;
+  }
+
+  /* Form rows — stack to single column */
+  .ant-form .ant-row .ant-col-12,
+  .ant-form .ant-row .ant-col-8,
+  .ant-form .ant-row .ant-col-6,
+  .ant-form .ant-row .ant-col-4 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Ant Descriptions — single column */
+  .ant-descriptions-item {
+    display: block;
+    width: 100%;
+  }
+
+  /* Kanban board — horizontal scroll */
+  .bms-kanban-board {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 16px;
+  }
+
+  /* Tabs — scroll on small screen */
+  .ant-tabs-nav {
+    overflow-x: auto;
+  }
+  .ant-tabs-nav-wrap {
+    overflow: visible !important;
+  }
+
+  /* Segmented control — full width */
+  .ant-segmented {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Space — wrap on overflow */
+  .ant-space-horizontal {
+    flex-wrap: wrap;
+  }
+
+  /* Drawer — full width on mobile */
+  .ant-drawer-content-wrapper {
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+
+  /* Dashboard summary cards */
+  .bms-dashboard-summary .ant-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+/* ── Small phone (≤768px) ────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .bms-app-content {
+    padding: 10px 6px !important;
+  }
+
+  /* Stat cards — 2 per row on phones */
+  .ant-row.stat-row > .ant-col,
+  .bms-stat-row > .ant-col {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+
+  /* Page title */
+  .page-title {
+    font-size: 16px;
+  }
+  .page-subtitle {
+    font-size: 12px;
+  }
+
+  /* Tables: tighter cells */
+  .ant-table-tbody > tr > td,
+  .ant-table-thead > tr > th {
+    padding: 8px 10px !important;
+    font-size: 12px;
+  }
+
+  /* Modal — almost full screen */
+  .ant-modal {
+    max-width: 98vw !important;
+    width: 98vw !important;
+    margin: 4px auto !important;
+    padding: 0 !important;
+    top: 4px !important;
+  }
+  .ant-modal-content {
+    border-radius: 12px;
+    max-height: calc(100vh - 16px);
+    padding: 14px !important;
+  }
+
+  /* Cards */
+  .ant-card-body {
+    padding: 12px !important;
+  }
+  .ant-card-head {
+    padding: 0 12px !important;
+    min-height: 44px !important;
+  }
+
+  /* Buttons in table actions — shrink */
+  .ant-btn-sm {
+    padding: 0 8px;
+    font-size: 12px;
+  }
+
+  /* Ant Collapse */
+  .ant-collapse-header {
+    padding: 10px 12px !important;
+  }
+
+  /* Ticket / project detail layout — stack fields */
+  .bms-detail-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Dashboard cards single-column on phone */
+  .bms-dashboard-summary .ant-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  /* Kanban — smaller cards */
+  .bms-kanban-column {
+    min-width: 220px !important;
+    max-width: 260px !important;
+  }
+
+  /* Tabs — icon only possible */
+  .ant-tabs-tab {
+    padding: 8px 10px !important;
+    font-size: 12px;
+  }
+
+  /* Chart containers */
+  .ant-chart-container,
+  .recharts-responsive-container,
+  div[class*="chart"] {
+    max-width: 100% !important;
+    overflow-x: auto;
+  }
+
+  /* Stat number */
+  .ant-statistic-content-value {
+    font-size: 22px !important;
+  }
+
+  /* Drawer */
+  .ant-drawer-content-wrapper {
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+
+  /* Filter/search rows in list pages */
+  .bms-filter-row,
+  .bms-filter-bar {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  .bms-filter-row .ant-select,
+  .bms-filter-row .ant-input,
+  .bms-filter-row .ant-picker,
+  .bms-filter-bar .ant-select,
+  .bms-filter-bar .ant-input,
+  .bms-filter-bar .ant-picker {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  /* Allocation / Employee cards */
+  .ant-list-item {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 8px;
+  }
+
+  /* Space compact */
+  .ant-space {
+    gap: 6px !important;
+  }
+}
+
+/* ── Very small phones (≤480px) ──────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .bms-user-name-block {
+    display: none;
+  }
+  .bms-global-search {
+    max-width: 110px !important;
+  }
+
+  .bms-app-content {
+    padding: 6px 4px !important;
+  }
+
+  /* Single column for everything */
+  .ant-row.stat-row > .ant-col,
+  .bms-stat-row > .ant-col {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .bms-dashboard-summary .ant-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  /* Tables — very compact */
+  .ant-table-tbody > tr > td,
+  .ant-table-thead > tr > th {
+    padding: 6px 8px !important;
+    font-size: 11px;
+  }
+
+  /* Hide less important table columns on tiny screens */
+  .ant-table-cell.bms-col-hide-xs {
+    display: none !important;
+  }
+
+  /* Modal — fullscreen */
+  .ant-modal {
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .ant-modal-content {
+    border-radius: 0;
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+
+  /* Title */
+  .page-title {
+    font-size: 15px;
+  }
+
+  /* Header compact */
+  .bms-app-header {
+    padding: 0 8px !important;
+    height: 56px !important;
+  }
+
+  /* Kanban — single column, scroll */
+  .bms-kanban-column {
+    min-width: 90vw !important;
+    max-width: 95vw !important;
+  }
+
+  /* Buttons */
+  .ant-btn {
+    font-size: 12px;
+    padding: 0 10px;
+  }
+  .ant-btn-lg {
+    font-size: 14px;
+  }
+
+  /* Notification bell badge */
+  .ant-badge-count {
+    font-size: 10px !important;
+    min-width: 16px !important;
+    height: 16px !important;
+    line-height: 16px !important;
+  }
+
+  /* Stat */
+  .ant-statistic-content-value {
+    font-size: 18px !important;
+  }
+  .ant-statistic-title {
+    font-size: 11px !important;
+  }
+
+  /* Card heads */
+  .ant-card-head-title {
+    font-size: 13px !important;
+  }
+}
+/* ── Login responsive ─────────────────────────────────────────────────────── */
+.bms-login-page {
+  display: flex;
+  min-height: 100vh;
+  font-family: var(--bms-font);
+}
+.bms-login-brand {
+  flex: 0 0 46%;
+  background: #060f1e;
+  display: flex;
+  flex-direction: column;
+  padding: 44px 52px;
+  position: relative;
+  overflow: hidden;
+}
+.bms-login-form-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bms-surface);
+  padding: 48px 40px;
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .bms-login-brand {
+    display: none;
+  }
+  .bms-login-form-panel {
+    flex: 1 1 100%;
+    padding: 32px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bms-login-brand [style*="animation"] {
+    animation: none !important;
+  }
+}
+
+/* ── Auth card (forgot-password, reset, etc.) ────────────────────────────── */
+@media (max-width: 400px) {
+  .bms-auth-card {
+    padding: 28px 20px !important;
+  }
+}
+
+/* ── Auth bootstrap ───────────────────────────────────────────────────────── */
+.bms-auth-bootstrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--bms-bg);
+}
+
+/* ── Timesheet dark theme ─────────────────────────────────────────────────── */
+[data-theme="dark"] .ts-week-label { color: var(--bms-text); }
+[data-theme="dark"] .ts-day-card {
+  border-color: var(--bms-border);
+  background: var(--bms-surface);
+}
+[data-theme="dark"] .ts-day-card--active {
+  border-color: var(--bms-primary);
+  background: var(--bms-surface-2);
+}
+[data-theme="dark"] .ts-day-card--over {
+  background: color-mix(in srgb, var(--bms-warning) 15%, var(--bms-surface));
+}
+[data-theme="dark"] .ts-day-name,
+[data-theme="dark"] .ts-day-hours { color: var(--bms-text-2); }
+[data-theme="dark"] .ts-summary-bar {
+  background: var(--bms-surface);
+  border-color: var(--bms-border);
+}
+
+/* Leave status chips — dark mode readability */
+[data-theme="dark"] .emp-leave__status {
+  filter: brightness(1.15);
+}
+
+/* ── Ant Design Charts / G2Plot Tooltip Overrides ─────────────────────── */
+
+/* Outer container: styled rounded box */
+.g2-tooltip {
+  padding: 10px 14px !important;
+  border-radius: 10px !important;
+  font-family: var(--bms-font) !important;
+}
+
+[data-theme="light"] .g2-tooltip {
+  background: var(--bms-surface) !important;
+  border: 1px solid var(--bms-border) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="dark"] .g2-tooltip {
+  background: var(--bms-surface-2) !important;
+  border: 1px solid var(--bms-border) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Inner list: remove all borders, backgrounds, padding — content flows directly in outer box */
+.g2-tooltip-list {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.g2-tooltip-list-item {
+  margin: 0 !important;
+  padding: 2px 0 !important;
+  border: none !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-size: 12px !important;
+  line-height: 1.6 !important;
+}
+
+[data-theme="light"] .g2-tooltip-title,
+[data-theme="light"] .g2-tooltip-list-item {
+  color: var(--bms-text) !important;
+}
+
+[data-theme="dark"] .g2-tooltip-title,
+[data-theme="dark"] .g2-tooltip-list-item {
+  color: var(--bms-text) !important;
+}
+
+.g2-tooltip-list-item .g2-tooltip-marker {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  flex-shrink: 0 !important;
+}
+
+[data-theme="dark"] .g2-legend-list-item-name,
+[data-theme="dark"] .g2-legend-item-name,
+[data-theme="dark"] .g2-legend-list-item,
+[data-theme="dark"] .g2-legend-item,
+[data-theme="dark"] .g2-legend-title {
+  color: var(--bms-text) !important;
+}
+
+[data-theme="dark"] .g2-html-annotation,
+[data-theme="dark"] .g2-guide-html {
+  color: var(--bms-text) !important;
+}
+
+/* Force SVG text elements inside charts to adapt to dark theme text color */
+[data-theme="dark"] div[class*="g2"] svg text,
+[data-theme="dark"] div[class*="chart"] svg text,
+[data-theme="dark"] .antv-chart-container svg text,
+[data-theme="dark"] canvas + svg text,
+[data-theme="dark"] svg[class*="g2"] text,
+[data-theme="dark"] svg[class*="axis"] text,
+[data-theme="dark"] .ant-chart-container text,
+[data-theme="dark"] .ant-charts text,
+[data-theme="dark"] tspan {
+  fill: var(--bms-text) !important;
+}
+
+/* Specifically fix G2Plot doughnut / pie center statistic text in dark mode */
+[data-theme="dark"] .g2-statistic-title,
+[data-theme="dark"] .g2-statistic-content {
+  color: var(--bms-text) !important;
+}
+
+/* G2Plot axis labels dark mode */
+[data-theme="dark"] .g2-axis-label text,
+[data-theme="dark"] .g2-axis-title text,
+[data-theme="dark"] .g2-label-text,
+[data-theme="dark"] .g2-axis text,
+[data-theme="dark"] .g2-label,
+[data-theme="dark"] .g2-chart-label {
+  fill: var(--bms-text) !important;
+  color: var(--bms-text) !important;
+}
+
+/* G2Plot grid lines for better contrast in dark mode */
+[data-theme="dark"] .g2-axis-line,
+[data-theme="dark"] .g2-grid-line {
+  stroke: var(--bms-border) !important;
+}
+
+/* Calendar pastel chips in dark mode */
+/* Removed overrides to allow dynamic colors in dark mode */
+/* [data-theme="dark"] .gcal-event-pastel,
+[data-theme="dark"] .gcal-timed-block {
+  background: var(--bms-surface-2) !important;
+  border-color: var(--bms-border) !important;
+} */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Responsive & accessibility foundation (site-wide)
+   These are safe, low-specificity defaults that cascade to every page.
+   Page-level fixed widths / column configs still need per-page follow-up.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Never let a stray fixed-width child push the whole page into horizontal
+   scroll — inner elements (tables, code blocks) still scroll internally. */
+html, body, #root {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Focus visibility (keyboard nav) ─────────────────────────────────────── */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+.ant-btn:focus-visible,
+.bms-nav-item:focus-visible,
+.bms-child-item:focus-visible,
+.bms-collapsed-item:focus-visible {
+  outline: 2px solid var(--bms-primary);
+  outline-offset: 2px;
+}
+
+/* ── Tables: scroll horizontally inside their own box, never the page ─────
+   Scope the scroll to .ant-table-container (not .ant-table-wrapper) so the
+   pagination row below the table stays put and never scrolls sideways. */
+.ant-table-wrapper {
+  max-width: 100%;
+}
+.ant-table-wrapper .ant-table-container {
+  overflow-x: auto;
+}
+
+/* ── Pagination: wrap and center instead of overflowing on phones ───────── */
+@media (max-width: 576px) {
+  .ant-table-pagination.ant-pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 8px;
+  }
+}
+
+/* ── Drawers: fixed pixel widths (e.g. width={520}) must never exceed the
+   viewport — otherwise part of the panel renders off-screen with no way
+   to reach it. Harmless at desktop widths where it never engages. ───── */
+.ant-drawer-content-wrapper {
+  max-width: 100vw !important;
+}
+
+/* ── Modals: fit small viewports, keep footer actions reachable ─────────── */
+@media (max-width: 576px) {
+  .ant-modal {
+    max-width: calc(100vw - 16px) !important;
+    margin: 8px auto !important;
+    top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .ant-modal-content {
+    max-height: calc(100vh - 16px);
+  }
+  .ant-modal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+  .ant-modal-footer .ant-btn {
+    flex: 0 0 auto;
+  }
+  .ant-picker-dropdown,
+  .ant-select-dropdown {
+    max-width: calc(100vw - 16px);
+  }
+}
+
+/* ── Forms: multi-column ant Rows collapse to one column on phones ──────── */
+@media (max-width: 576px) {
+  .ant-form .ant-row:not(.bms-no-stack) > .ant-col {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  /* Horizontal-layout Form.Item renders label/control as a Row of two Cols;
+     once stacked, a right-aligned label above the input reads oddly. */
+  .ant-form-horizontal .ant-form-item-label {
+    text-align: left !important;
+  }
+}
+
+/* ── Chips/badges/tags: wrap instead of clipping long labels ─────────────── */
+.ant-tag {
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* ── Touch targets: only on real touchscreens, desktop density unchanged ── */
+@media (hover: none) and (pointer: coarse) {
+  .ant-btn,
+  .bms-header-icon-btn,
+  .ant-pagination-item,
+  .ant-pagination-item-link,
+  .ant-select-selector,
+  .ant-picker,
+  .bms-nav-item,
+  .bms-collapsed-item {
+    min-height: 44px;
+  }
+  .ant-checkbox-wrapper,
+  .ant-radio-wrapper {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ── Cards: equal-height responsive grid opt-in for card layouts ────────── */
+.bms-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+.bms-card-grid > .ant-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.bms-card-grid > .ant-card .ant-card-body {
+  flex: 1 1 auto;
+}
+
+/* ── Loading / empty state centering opt-in ──────────────────────────────── */
+.bms-center-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 200px;
+  padding: 24px 16px;
+  gap: 12px;
+}
+
+/* ── Responsive Notification Box & Popovers ──────────────────────────────── */
+.pmt-notification-popover {
+  max-width: calc(100vw - 16px) !important;
+}
+
+@media (max-width: 576px) {
+  .pmt-notification-popover {
+    left: 8px !important;
+    right: 8px !important;
+    max-width: calc(100vw - 16px) !important;
+  }
+
+  .pmt-notification-popover .ant-popover-content {
+    width: 100% !important;
+  }
+
+  .pmt-notification-popover .ant-popover-inner {
+    padding: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 12px !important;
+  }
+
+  /* Ant Design Toast Notifications Sizing on Mobile */
+  .ant-notification {
+    width: calc(100vw - 24px) !important;
+    max-width: 100% !important;
+    margin-left: 12px !important;
+    margin-right: 12px !important;
+  }
+
+  .ant-notification-notice {
+    width: 100% !important;
+    padding: 12px 14px !important;
+    border-radius: 10px !important;
+  }
+}
+
+/* ── Plan & usage ───────────────────────────────────────────────────────── */
+.plan-page {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.plan-page__header,
+.plan-page__section-heading,
+.plan-current__summary,
+.plan-option__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.plan-page__header {
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.plan-page__header .ant-typography,
+.plan-page__section-heading .ant-typography,
+.plan-current .ant-typography,
+.plan-option .ant-typography {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.plan-page__eyebrow {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--bms-primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.plan-page__limit-alert {
+  margin-bottom: 16px;
+}
+
+.plan-current {
+  overflow: hidden;
+  border: 1px solid var(--bms-info-border);
+  background:
+    linear-gradient(135deg, var(--bms-primary-light), transparent 52%),
+    var(--bms-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.plan-current__summary {
+  align-items: center;
+}
+
+.plan-current__icon {
+  display: grid;
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--bms-primary);
+  color: white;
+  font-size: 24px;
+}
+
+.plan-current__summary > div:nth-child(2) {
+  flex: 1;
+}
+
+.plan-current__price {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: baseline;
+  max-width: 220px;
+  text-align: right;
+}
+
+.plan-current__price strong,
+.plan-option__price strong {
+  color: var(--bms-text);
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.plan-current__price > .ant-typography:last-child {
+  flex-basis: 100%;
+}
+
+.plan-current__meters {
+  margin-top: 20px;
+}
+
+.plan-usage-meter {
+  height: 100%;
+  border: 1px solid var(--bms-border);
+  background: color-mix(in srgb, var(--bms-surface) 90%, transparent);
+}
+
+.plan-usage-meter__heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.plan-usage-meter__icon {
+  color: var(--bms-primary);
+  font-size: 18px;
+}
+
+.plan-usage-meter__value {
+  margin: 8px 0 2px;
+  color: var(--bms-text);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.plan-usage-meter__value .ant-typography {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.plan-usage-meter__caption {
+  font-size: 12px;
+}
+
+.plan-page__section {
+  margin-top: 30px;
+}
+
+.plan-page__section-heading {
+  align-items: flex-end;
+  margin-bottom: 14px;
+}
+
+.plan-page__section-heading h3 {
+  font-size: 20px;
+}
+
+.plan-modules {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px;
+}
+
+.plan-module {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 2px 8px;
+  align-items: center;
+  min-height: 68px;
+  padding: 12px;
+  border: 1px solid var(--bms-border);
+  border-radius: 12px;
+  background: var(--bms-surface);
+  color: var(--bms-text-3);
+}
+
+.plan-module--included {
+  border-color: var(--bms-success-border);
+  background: var(--bms-success-bg);
+  color: var(--bms-success);
+}
+
+.plan-module span {
+  color: var(--bms-text);
+  font-weight: 600;
+}
+
+.plan-module small {
+  grid-column: 2;
+  color: var(--bms-text-3);
+  font-size: 11px;
+}
+
+.plan-option {
+  height: 100%;
+  border-color: var(--bms-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.plan-option--current {
+  border: 2px solid var(--bms-primary);
+  background:
+    linear-gradient(180deg, var(--bms-primary-light), transparent 140px),
+    var(--bms-surface);
+}
+
+.plan-option__top {
+  min-height: 88px;
+}
+
+.plan-option__top h4 {
+  font-size: 18px;
+}
+
+.plan-option__crown {
+  color: var(--bms-primary);
+  font-size: 22px;
+}
+
+.plan-option__price {
+  margin-top: 18px;
+}
+
+.plan-option__features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--bms-border);
+}
+
+.plan-option__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  color: var(--bms-success);
+  font-size: 12px;
+}
+
+.plan-option__feature span {
+  color: var(--bms-text-2);
+}
+
+.plan-option__feature--muted,
+.plan-option__feature--muted span {
+  color: var(--bms-text-3);
+}
+
+@media (max-width: 768px) {
+  .plan-page__header,
+  .plan-page__section-heading,
+  .plan-current__summary {
+    align-items: flex-start;
+  }
+
+  .plan-current__summary {
+    flex-wrap: wrap;
+  }
+
+  .plan-current__price {
+    width: 100%;
+    max-width: none;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .plan-current__price > .ant-typography:last-child {
+    flex-basis: auto;
+    margin-left: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .plan-page__header,
+  .plan-page__section-heading {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .plan-page__header h2 {
+    font-size: 24px;
+  }
+
+  .plan-current__icon {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+  }
+
+  .plan-current__summary > div:nth-child(2) {
+    min-width: calc(100% - 64px);
+  }
+
+  .plan-modules,
+  .plan-option__features {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Leave management ───────────────────────────────────────────────────── */
+.leave-page {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.leave-page__header {
+  margin-bottom: 20px;
+}
+
+.leave-page__header .ant-typography {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.leave-page__eyebrow {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--bms-primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.leave-page__tabs > .ant-tabs-nav {
+  margin-bottom: 20px;
+}
+
+.leave-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.leave-toolbar--end {
+  justify-content: flex-end;
+}
+
+.leave-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.leave-hr-table {
+  max-width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--bms-border);
+  border-radius: 12px;
+  background: var(--bms-surface);
+}
+
+.leave-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  padding: 3px 9px;
+  border: 1px solid var(--bms-border);
+  border-radius: 999px;
+  background: var(--bms-surface-2);
+  color: var(--bms-text-2);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.leave-status__dot {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.leave-status--success {
+  border-color: var(--bms-success-border);
+  background: var(--bms-success-bg);
+  color: var(--bms-success);
+}
+
+.leave-status--warning {
+  border-color: var(--bms-warning-border);
+  background: var(--bms-warning-bg);
+  color: var(--bms-warning);
+}
+
+.leave-status--info {
+  border-color: var(--bms-info-border);
+  background: var(--bms-info-bg);
+  color: var(--bms-primary);
+}
+
+.leave-status--danger {
+  border-color: var(--bms-danger-border);
+  background: var(--bms-danger-bg);
+  color: var(--bms-danger);
+}
+
+.leave-pending-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border: 1px solid var(--bms-warning-border);
+  border-radius: 10px;
+  background: var(--bms-warning-bg);
+  color: var(--bms-warning);
+}
+
+.leave-proof-banner {
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border: 1px solid var(--bms-border);
+  border-radius: 10px;
+  color: var(--bms-text-2);
+}
+
+.leave-proof-banner--success {
+  border-color: var(--bms-success-border);
+  background: var(--bms-success-bg);
+  color: var(--bms-success);
+}
+
+.leave-proof-banner--warning {
+  border-color: var(--bms-warning-border);
+  background: var(--bms-warning-bg);
+  color: var(--bms-warning);
+}
+
+.leave-proof-banner--info {
+  border-color: var(--bms-info-border);
+  background: var(--bms-info-bg);
+  color: var(--bms-primary);
+}
+
+.leave-proof-banner .ant-typography,
+.leave-proof-banner a {
+  color: currentColor;
+}
+
+.leave-proof-banner a {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.leave-decision {
+  font-weight: 700;
+}
+
+.leave-decision--approve {
+  color: var(--bms-success);
+}
+
+.leave-decision--reject {
+  color: var(--bms-danger);
+}
+
+.leave-mobile-list {
+  display: none;
+}
+
+.leave-mobile-card {
+  border-color: var(--bms-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.leave-mobile-card + .leave-mobile-card {
+  margin-top: 12px;
+}
+
+.leave-mobile-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.leave-mobile-card__date,
+.leave-mobile-card__subtitle {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+  color: var(--bms-text-3);
+  font-size: 12px;
+}
+
+.leave-mobile-card__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 14px 0 10px;
+  padding: 10px 0;
+  border-top: 1px solid var(--bms-border);
+  border-bottom: 1px solid var(--bms-border);
+  color: var(--bms-text-2);
+  font-size: 12px;
+}
+
+.leave-mobile-card .ant-btn-block {
+  min-height: 44px;
+  margin-top: 14px;
+}
+
+.leave-empty {
+  padding: 36px 16px;
+  border: 1px dashed var(--bms-border);
+  border-radius: 12px;
+  background: var(--bms-surface);
+}
+
+.leave-hr-table .pending-row > td {
+  background: color-mix(in srgb, var(--bms-warning-bg) 70%, transparent);
+}
+
+@media (max-width: 960px) {
+  .leave-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .leave-desktop-table {
+    display: none;
+  }
+
+  .leave-mobile-list {
+    display: block;
+  }
+
+  .leave-toolbar {
+    align-items: stretch;
+  }
+
+  .leave-toolbar > :first-child {
+    width: 100%;
+  }
+
+  .leave-toolbar__actions {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr auto;
+  }
+
+  .leave-toolbar__actions .ant-select {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .leave-page__header h2 {
+    font-size: 24px;
+  }
+
+  .leave-page__tabs > .ant-tabs-nav .ant-tabs-nav-list {
+    width: 100%;
+  }
+
+  .leave-page__tabs > .ant-tabs-nav .ant-tabs-tab {
+    flex: 1;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 8px;
+  }
+
+  .leave-summary-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .leave-toolbar--end {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .leave-toolbar--end .ant-btn {
+    min-height: 44px;
+  }
+}
+
+/* ── Dark Theme Button & Icon Overrides ────────────────────────────────── */
+[data-theme="dark"] .ant-btn:not(.ant-btn-primary):not(.ant-btn-danger):not(.ant-btn-dashed):not(.ant-btn-text) {
+  background-color: var(--bms-surface-2) !important;
+  background: var(--bms-surface-2) !important;
+  color: var(--bms-text) !important;
+  border-color: var(--bms-border) !important;
+}
+
+[data-theme="dark"] .ant-btn-text {
+  background-color: transparent !important;
+  background: transparent !important;
+  color: var(--bms-text) !important;
+  border-color: transparent !important;
+  border: none !important;
+}
+
+[data-theme="dark"] .ant-btn-text:hover,
+[data-theme="dark"] .ant-btn-text:focus,
+[data-theme="dark"] .ant-btn-text:active {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--bms-text) !important;
+}
+
+[data-theme="dark"] .ant-btn-dashed {
+  background-color: transparent !important;
+  background: transparent !important;
+  color: var(--bms-text) !important;
+  border-color: var(--bms-border) !important;
+}
+
+[data-theme="dark"] .ant-btn-dashed:hover {
+  border-color: var(--bms-primary) !important;
+  color: var(--bms-primary) !important;
+}
+
+/* Clock Time Picker Popover */
+.clock-time-picker-popover .ant-popover-inner {
+  background: var(--bms-surface) !important;
+  border: 1px solid var(--bms-border) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border-radius: 12px !important;
+  padding: 12px !important;
+}
+
+.clock-time-picker-popover .ant-popover-arrow::before {
+  background: var(--bms-surface) !important;
+}

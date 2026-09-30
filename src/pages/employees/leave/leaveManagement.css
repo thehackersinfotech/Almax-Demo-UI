@@ -1,0 +1,447 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   EXACT MATCH LEAVE MANAGEMENT DASHBOARD STYLING
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.leave-page-container {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Header Bar - Clean White/Surface Header */
+.leave-dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+
+.leave-dashboard-header__title {
+  margin: 0 !important;
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  color: var(--bms-text) !important;
+  letter-spacing: -0.02em;
+}
+
+.leave-dashboard-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-apply-leave-speedo {
+  background: #bae6fd !important;
+  color: #0369a1 !important;
+  font-weight: 600 !important;
+  font-size: 13.5px !important;
+  border-radius: 10px !important;
+  border: none !important;
+  padding: 8px 18px !important;
+  height: 38px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-apply-leave-speedo:hover {
+  background: #7dd3fc !important;
+  color: #0c4a6e !important;
+}
+
+.btn-refresh-speedo {
+  background: #e2e8f0 !important;
+  color: #334155 !important;
+  font-weight: 600 !important;
+  font-size: 13.5px !important;
+  border-radius: 10px !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  height: 38px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-refresh-speedo:hover {
+  background: #cbd5e1 !important;
+  color: #1e293b !important;
+}
+
+/* Speedometer Cards Grid */
+.speedo-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.speedo-card {
+  background: var(--bms-surface);
+  border: 1px solid var(--bms-border);
+  border-radius: 16px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.speedo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.speedo-card__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--bms-text);
+  margin: 0;
+}
+
+.speedo-card__content {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.speedo-card__gauge-box {
+  flex-shrink: 0;
+}
+
+.speedo-card__info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.speedo-card__used-text {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--bms-text);
+}
+
+.speedo-card__avail-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--bms-text-3);
+}
+
+/* ── 2-Column Dashboard Layout ────────────────────────────────────────── */
+.leave-dashboard-2col {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .leave-dashboard-2col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.leave-col-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--bms-text);
+  margin: 0 0 14px 0;
+}
+
+/* ── Left Column: Recent Leave Requests Row Cards ────────────────────────────── */
+.recent-requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recent-request-card {
+  background: var(--bms-surface);
+  border: 1px solid var(--bms-border);
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+}
+
+.recent-request-card:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.recent-request-card__left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+
+.recent-request-card__leaf-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.recent-request-card__leaf-badge--approved {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.recent-request-card__leaf-badge--rejected {
+  background: #ffe4e6;
+  color: #e11d48;
+}
+
+.recent-request-card__leaf-badge--pending {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.recent-request-card__details-grid {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.recent-request-card__detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.recent-request-card__label {
+  font-size: 11px;
+  color: var(--bms-text-3);
+  font-weight: 500;
+}
+
+.recent-request-card__val {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--bms-text);
+}
+
+.recent-request-card__status-pill {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.recent-request-card__status-pill--approved {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.recent-request-card__status-pill--rejected {
+  background: #ffe4e6;
+  color: #be123c;
+}
+
+.recent-request-card__status-pill--pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.recent-request-card__right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.recent-request-card__applied-text {
+  font-size: 12px;
+  color: var(--bms-text-3);
+  white-space: nowrap;
+}
+
+.btn-recent-cancel {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 12.5px !important;
+  padding: 4px 14px !important;
+  height: 32px !important;
+}
+
+.btn-recent-cancel:hover {
+  background: #fee2e2 !important;
+  color: #dc2626 !important;
+}
+
+.btn-recent-view {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 12.5px !important;
+  padding: 4px 14px !important;
+  height: 32px !important;
+}
+
+.btn-recent-view:hover {
+  background: #e2e8f0 !important;
+  color: #1e293b !important;
+}
+
+/* ── Right Column: Monthly Overview Calendar ─────────────────────────────── */
+.monthly-calendar-card {
+  background: var(--bms-surface);
+  border: 1px solid var(--bms-border);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.monthly-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  text-align: center;
+}
+
+.monthly-calendar-day-header {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--bms-text-3);
+  padding-bottom: 6px;
+}
+
+.monthly-calendar-cell {
+  padding: 6px 0;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--bms-text);
+  min-height: 42px;
+  background: var(--bms-surface-2);
+}
+
+.monthly-calendar-cell--other {
+  color: var(--bms-text-3);
+  opacity: 0.5;
+}
+
+.monthly-calendar-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin-top: 2px;
+}
+
+.monthly-calendar-dot--approved {
+  background: #16a34a;
+}
+
+.monthly-calendar-dot--pending {
+  background: #d97706;
+}
+
+.monthly-calendar-cross--rejected {
+  color: #dc2626;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.monthly-calendar-legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px dashed var(--bms-border);
+  border-bottom: 1px dashed var(--bms-border);
+  font-size: 12px;
+  color: var(--bms-text-2);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-leave-calendar {
+  background: #dcfce7 !important;
+  color: #15803d !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  padding: 8px 16px !important;
+  width: 100% !important;
+  height: 38px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-leave-calendar:hover {
+  background: #bbf7d0 !important;
+  color: #166534 !important;
+}
+
+/* ── Mobile Responsiveness for Leave Management ── */
+@media (max-width: 768px) {
+  .leave-dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .leave-dashboard-header__actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .btn-apply-leave-speedo,
+  .btn-refresh-speedo {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .speedo-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recent-request-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .recent-request-card__right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

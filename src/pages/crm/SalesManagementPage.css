@@ -1,0 +1,113 @@
+/* Sales Management Page Styles */
+
+.sales-page {
+  padding: 24px;
+  background: var(--bms-bg);
+  min-height: 100%;
+}
+
+.sales-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.sales-header h2 {
+  margin-bottom: 4px !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: var(--bms-text) !important;
+}
+
+.sales-header p {
+  color: var(--bms-text-2);
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Horizontal Custom Tab Bar */
+.sales-tab-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  background: var(--bms-surface);
+  border: 1px solid var(--bms-border);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.sales-tab-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--bms-text-2);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.sales-tab-item:hover {
+  color: var(--bms-text);
+  background: rgba(125, 125, 125, 0.08);
+}
+
+.sales-tab-item.active {
+  background: linear-gradient(135deg, #4b5bca 0%, #6366f1 100%);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(75, 91, 202, 0.3);
+}
+
+.sales-tab-icon {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+/* Stat Cards */
+.sales-stat-card {
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  background: var(--bms-surface) !important;
+  border: 1px solid var(--bms-border) !important;
+}
+
+.sales-stat-card .ant-statistic-title {
+  font-size: 13px;
+  color: var(--bms-text-2);
+}
+
+.sales-stat-card .ant-statistic-content-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--bms-text);
+}
+
+/* Dashboard Grid */
+.sales-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+@media (max-width: 992px) {
+  .sales-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sales-panel-card {
+  background: var(--bms-surface);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--bms-border);
+}
