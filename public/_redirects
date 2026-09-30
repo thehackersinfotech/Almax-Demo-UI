@@ -1,0 +1,4 @@
+/bms/assets/*   /bms/assets/:splat    200
+/       /bms/   301!
+/bms/*  /bms/index.html   200
+/*      /index.html   200

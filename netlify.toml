@@ -1,0 +1,52 @@
+# ── Netlify Configuration for Almax Demo UI ──────────────────────────────────────
+
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# 1. Assets and static resources under /bms/ route
+[[redirects]]
+  from = "/bms/assets/*"
+  to = "/bms/assets/:splat"
+  status = 200
+
+# 2. Redirect root "/" to "/bms/"
+[[redirects]]
+  from = "/"
+  to = "/bms/"
+  status = 301
+  force = true
+
+# 3. SPA Fallback: rewrite all "/bms/*" paths to "/bms/index.html"
+[[redirects]]
+  from = "/bms/*"
+  to = "/bms/index.html"
+  status = 200
+
+# 4. Fallback for any other path to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# ── Caching & Performance Headers ─────────────────────────────────────────────
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/bms/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
